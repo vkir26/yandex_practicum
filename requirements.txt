@@ -1,3 +1,4 @@
+pre-commit
 attrs==22.1.0
 flake8==5.0.4
 iniconfig==1.1.1
