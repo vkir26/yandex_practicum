@@ -2,6 +2,7 @@
 Фитнес-трекер, который обрабатывает данные для трёх видов тренировок:
 бега, спортивной ходьбы и плавания.
 """
+from enum import Enum
 
 
 class InfoMessage:
@@ -147,7 +148,7 @@ class Swimming(Training):
         )
 
 
-def read_package(workout_type: str, data: list[int]) -> Training:
+def read_package(workout_type, data: list[int]) -> Training:
     """Прочитать данные полученные от датчиков."""
     commands = {
         "SWM": Swimming,  # Плавание
@@ -160,8 +161,8 @@ def read_package(workout_type: str, data: list[int]) -> Training:
 
 def main(training: Training) -> None:
     """Главная функция."""
-    info = InfoMessage
-    print(info.get_message(training.show_training_info()))
+    info = training.show_training_info()
+    print(info.get_message())
 
 
 if __name__ == "__main__":
