@@ -5,25 +5,25 @@
 {% load static %}
 {% block content %}
   <h1>Лента записей</h1>
-    {% for post in posts_list %}
+    {% for publication in post %}
       <hr>
       <article>
         <ul>
           <li>
-            Место: {{post.location}}
+            Место: {{publication.location}}
           </li>
           <li>
-            Дата: {{ post.date }}
+            Дата: {{ publication.date }}
           </li>
           <li>
-            Категория: <a href=category/{{posts.category}}>{{post.category}}</a>
+            Категория: <a href="{% url 'blog:category_posts' publication.category %}">{{publication.category}}</a>
           </li>
         </ul>
         <!-- Первые 10 слов -->
         <p>
-          {{ post.text|truncatewords:10 }}
+          {{ publication.text|truncatewords:10 }}
         </p>
-        <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
+        <a href="{% url 'blog:post_detail' publication.id %}">Читать полный текст</a>
       </article>
   {% endfor %}
 {% endblock %}
