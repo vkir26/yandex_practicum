@@ -12,7 +12,7 @@ class Category(PublishedModel):
 
     class Meta:
         # Перевод названия моделей
-        verbose_name = "категория"  # расширенное название
+        verbose_name = "объект «Категория»"  # расширенное название
         verbose_name_plural = "Категории"  # расширенное название во множественном числе
 
     def __str__(self):
@@ -24,7 +24,7 @@ class Topping(PublishedModel):
     slug = models.SlugField(max_length=64, unique=True, verbose_name="Слаг")
 
     class Meta:
-        verbose_name = "топпинг"
+        verbose_name = "объект «Топпинг»"
         verbose_name_plural = "Топпинги"
 
     def __str__(self):
@@ -32,10 +32,14 @@ class Topping(PublishedModel):
 
 
 class Wrapper(PublishedModel):
-    title = models.CharField(max_length=256, verbose_name="Название")
+    title = models.CharField(
+        max_length=256,
+        verbose_name="Название",
+        help_text="Уникальное название обёртки, не более 256 символов",
+    )
 
     class Meta:
-        verbose_name = "обёртка"
+        verbose_name = "объект «Обёртка»"
         verbose_name_plural = "Обёртки"
 
     def __str__(self):
@@ -64,7 +68,7 @@ class IceCream(PublishedModel):
     is_on_main = models.BooleanField(default=False, verbose_name="На главную")
 
     class Meta:
-        verbose_name = "мороженое"
+        verbose_name = "объект «Мороженое»"
         verbose_name_plural = "Мороженое"
 
     def __str__(self):

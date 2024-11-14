@@ -146,3 +146,4 @@ dmypy.json
 .mypy_cache
 .flake8
 setup.cfg
+*.json
